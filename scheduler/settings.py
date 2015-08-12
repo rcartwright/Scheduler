@@ -27,6 +27,15 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_db',
+        'USER': 'root',
+        'PASSWORD': 'your_password',
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = (
