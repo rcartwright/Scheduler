@@ -6,7 +6,7 @@ from requests.models import User
 
 
 class Request_id_display(admin.ModelAdmin):
-    list_display = ['id', 'request_text', 'request_date'] 
+    list_display = ['id', 'request_text', 'request_date', 'user'] 
 
 class User_id_display(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name',] 
