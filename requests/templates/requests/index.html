@@ -1,0 +1,9 @@
+{% if user_list %}
+    <ul>
+    {% for request in user_list %}
+        <li><a href="/requests/{{ request.id }}/">{{ request.request_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No requests are available.</p>
+{% endif %}

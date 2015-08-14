@@ -1,13 +1,16 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse
+from django.template import RequestContext, loader
 
 from requests.models import Vacation
 
 def index(request):
     user_list = Vacation.objects.order_by('-days_total')[:5]
-    output = ', '.join([str(i) for i in user_list])
-    return HttpResponse(output)
+    template = loader.get_template('requests/index.html')
+    context = RequestContext(request, {
+        'user_list': user_list,
+    })
+    return HttpResponse(template.render(context))
 
 def edit(request, request_id):
     return HttpResponse("Edit Request" % request_id)
