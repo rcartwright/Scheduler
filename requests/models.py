@@ -12,6 +12,15 @@ class Request(models.Model):
     user = models.ForeignKey(User)
     request_text = models.CharField(max_length=200)
     request_date = models.DateTimeField('date requested')
+    days = models.IntegerField()
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.request_text
+
+class Vacation(models.Model):
+    user = models.OneToOneField(User, primary_key=True)
+    days = models.CharField(max_length=200)
+    days_total = models.IntegerField()
 
     def __str__(self):              # __unicode__ on Python 2
         return self.request_text
