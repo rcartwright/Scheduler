@@ -24,3 +24,5 @@ class Vacation(models.Model):
     days = models.CharField(max_length=200)
     days_total = models.IntegerField()
 
+    def __str__(self):              # __unicode__ on Python 2
+            return "%s" % (self.days_total, self.days)
