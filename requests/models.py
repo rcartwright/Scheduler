@@ -5,9 +5,13 @@ class User(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
-
+    def __str__(self):              # __unicode__ on Python 2
+        return "%s" % (self.id)
 
 class Request(models.Model):
     user = models.ForeignKey(User)
     request_text = models.CharField(max_length=200)
     request_date = models.DateTimeField('date requested')
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.request_text
